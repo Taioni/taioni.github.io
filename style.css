@@ -33,6 +33,10 @@ header p{
   font-size: 1rem;
 }
 
+section{
+  margin-bottom: 50px;
+}
+
 .tab-nav {
   position: fixed;
   top: 0;
@@ -111,4 +115,13 @@ footer {
   color: white;
   text-align: left;
   padding: 10px 0;
+}
+
+.Wam {
+  text-align: center;
+}
+
+.myicon {
+  width: 150px;
+  border-radius: 50%;
 }
