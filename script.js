@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabContents = document.querySelectorAll(".tab-content");
@@ -11,12 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const targetTab = button.getAttribute("data-tab");
 
-      // すべてのボタンとコンテンツを非アクティブに
-      tabButtons.forEach((btn) => btn.classList.remove("active"));
-      tabContents.forEach((content) => content.classList.remove("active"));
+      // 現在表示中のコンテンツを非表示に
+      tabContents.forEach((content) => {
+        content.classList.remove("active");
+      });
 
-      // 対象のボタンとコンテンツをアクティブに
-      button.classList.add("active");
+      // 対象のコンテンツをアクティブに
       document.getElementById(targetTab).classList.add("active");
     });
   });

@@ -17,24 +17,38 @@ body {
 }
 
 header {
-  background: #009688;
+  position: relative;
+  background: none; /* 背景色を削除 */
   color: white;
   text-align: left;
-  padding: 10px 0;
-  margin-top: 10px;
+  padding: 100px 0;
+  overflow: hidden; /* 疑似要素がはみ出さないようにする */
+  height:200px;
 }
 
-header h1{
-  margin-left: 10px;
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%; /* 回転しても背景が欠けないように広めに設定 */
+  height: 200px;
+  background: #009688;
+  transform: rotate(-10deg); /* 背景のみを回転 */
+  transform-origin: 0% 100%; /* 回転の基点を調整 */
+  z-index: -1; /* 背景をテキストの背面に配置 */
 }
 
-header p{
-  margin-left: 10px;
-  font-size: 1rem;
+/* ヘッダー内の文字スタイル */
+header .atama {
+  position: relative; /* 疑似要素の影響を受けないようにする */
+  color: white;
+  padding: 0 20px;
+  margin: 0;
 }
 
 section{
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .tab-nav {
@@ -49,7 +63,8 @@ section{
   z-index: 1000;
 }
 
-.tab-nav button {
+/* タブボタンの状態管理 */
+.tab-button {
   background: #00796b;
   color: white;
   border: none;
@@ -60,13 +75,8 @@ section{
   transition: background 0.3s;
 }
 
-nav button:hover {
+.tab-button:hover {
   background: #004d40;
-}
-
-nav button.active {
-  background: #004d40;
-  font-weight: bold;
 }
 
 main {
@@ -77,16 +87,25 @@ main {
   margin-top: 20px; /* ヘッダーの下に余白を追加 */
 }
 
+/* タブコンテンツアニメーション */
 .tab-content {
-  display: none;
-  padding: 20px;
-  background: #333;
-  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 300px;
+  left: 0px;
+  width:100%;
+  opacity: 0; /* 初期状態は透明 */
+  visibility: hidden; /* 非表示にするがアニメーション可能 */
+  transform: translateY(20px); /* 下に配置 */
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
 }
 
 .tab-content.active {
-  display: block;
+  opacity: 1; /* 表示されるときに不透明 */
+  visibility: visible; /* アニメーション終了後に完全に表示 */
+  transform: translateY(0); /* 元の位置に戻る */
 }
+
 
 ul {
   list-style: none;
@@ -115,6 +134,7 @@ footer {
   color: white;
   text-align: left;
   padding: 10px 0;
+  margin-top:30px;
 }
 
 .Wam {
