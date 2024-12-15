@@ -172,23 +172,6 @@ footer {
 
 /* 各カードのスタイル */
 .content-card {
-  display: block; /* カード全体をリンク化 */
-  background-size: cover; /* 背景画像をカードのサイズに合わせる */
-  background-position: center; /* 画像の中心を表示 */
-  background-repeat: no-repeat; /* 繰り返しを防ぐ */
-  color: #fff; /* テキストを白にして画像上でも読みやすく */
-  border: 1px solid #ddd; /* 枠線 */
-  border-radius: 10px; /* 角丸 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影 */
-  padding: 20px;
-  text-align: center;
-  text-decoration: none; /* リンクの下線を削除 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 200px; /* カードの高さを固定 */
-}
-
-/* 各カードのスタイル */
-.content-card {
   position: relative; /* 疑似要素を適用するためにrelativeを設定 */
   display: block;
   background: none; /* 背景画像は疑似要素で設定 */
