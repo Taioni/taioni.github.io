@@ -43,4 +43,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  const collapsibleHeaders = document.querySelectorAll(".collapsible");
+
+  collapsibleHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+
+      // 開閉状態を切り替え
+      header.classList.toggle("open");
+
+      if (content.classList.contains("open")) {
+        content.classList.remove("open");
+      } else {
+        content.classList.add("open");
+      }
+    });
+  });
 });
