@@ -50,12 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
     header.addEventListener("click", () => {
       const content = header.nextElementSibling;
 
-      // 開閉状態を切り替え
-      header.classList.toggle("open");
-
-      if (content.classList.contains("open")) {
+      if (content.style.maxHeight) {
+        // 開いている場合は閉じる
+        content.style.maxHeight = null;
         content.classList.remove("open");
       } else {
+        // 選択されたセクションを開く
+        content.style.maxHeight = content.scrollHeight + "px"; // 動的に高さを設定
         content.classList.add("open");
       }
     });
